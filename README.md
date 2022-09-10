@@ -81,6 +81,7 @@ En el archivo **data.ts** en la carpeta **db** puedes encontrar el arreglo con t
 - [Cloudinary](https://cloudinary.com/)
 - [React Toastify](https://fkhadra.github.io/react-toastify/introduction)
 - [Yup](https://github.com/jquense/yup)
+- [Prisma](https://www.prisma.io/)
 - [MongoDB](https://www.mongodb.com/)
 
 ## 📄 Licencia
