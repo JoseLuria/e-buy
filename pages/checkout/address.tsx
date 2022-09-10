@@ -1,16 +1,19 @@
-import { NextPage } from "next";
+import { NextPage, GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Layout, Button, Input, Form, CountriesList } from "@/components";
 import { yupAddress } from "@/validations";
-import { setAddress, useDispatch, useSelector, getAuthState } from "@/toolkit";
+import { setAddress, useDispatch } from "@/toolkit";
 import { Address } from "@prisma/client";
 
 const title = "Dirección";
 
-const Address: NextPage = () => {
-  const { address } = useSelector(getAuthState);
+interface Props {
+  address: Address;
+}
+
+const Address: NextPage<Props> = ({ address }) => {
   const {
     register,
     formState: { errors },
@@ -18,7 +21,7 @@ const Address: NextPage = () => {
     setValue,
   } = useForm<Address>({
     resolver: yupResolver(yupAddress),
-    defaultValues: address,
+    defaultValues: address ? address : undefined,
   });
   const router = useRouter();
   const dispatch = useDispatch();
@@ -89,6 +92,24 @@ const Address: NextPage = () => {
       </Form>
     </Layout>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+  const { address } = req.cookies;
+
+  if (!address) {
+    return {
+      props: {
+        address: null,
+      },
+    };
+  }
+
+  return {
+    props: {
+      address: JSON.parse(address),
+    },
+  };
 };
 
 export default Address;
