@@ -13,7 +13,7 @@ Una tienda con productos de ropa creada con NextJs usando Static site generation
 Primero clona el repositorio desde GitHub.
 
 ```shell
-git clone https://github.com/joseluria/e-buy.git
+git clone https://github.com/JoseLuria/e-buy.git
 ```
 
 Muévete a la carpeta del proyecto.
