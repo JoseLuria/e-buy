@@ -1,0 +1,104 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  email       String   @unique
+  image       String?
+  password    String
+  description String?
+  role        UserRole @default(client)
+  type        UserType
+  Order       Order[]
+}
+
+model Product {
+  id          String         @id @default(auto()) @map("_id") @db.ObjectId
+  slug        String         @unique
+  title       String
+  description String
+  images      String[]
+  inStock     Int
+  price       Int
+  sizes       ProductSizes[]
+  tags        String[]
+  type        ProductTypes
+  gender      ProductGender
+}
+
+model Order {
+  id            String      @id @default(auto()) @map("_id") @db.ObjectId
+  orderUser     User        @relation(fields: [user], references: [id])
+  user          String      @db.ObjectId
+  orderItems    OrderItem[]
+  address       Address
+  numberOfItems Int
+  subTotal      Float
+  tax           Float
+  grandTotal    Float
+  isPaid        Boolean
+  paidAt        String?
+  transactionId String?
+}
+
+type OrderItem {
+  id       String        @db.ObjectId
+  slug     String
+  title    String
+  size     String
+  quantity Int
+  image    String
+  price    Int
+  gender   ProductGender
+}
+
+type Address {
+  name       String
+  address    String
+  addressTwo String?
+  zip        String
+  phone      String
+  country    String
+  city       String
+}
+
+enum UserRole {
+  admin
+  client
+}
+
+enum UserType {
+  credentials
+  oauth
+}
+
+enum ProductSizes {
+  XS
+  S
+  M
+  L
+  XL
+  XXL
+  XXXL
+}
+
+enum ProductTypes {
+  shirts
+  pants
+  hoodies
+  hats
+}
+
+enum ProductGender {
+  men
+  women
+  kid
+  unisex
+}

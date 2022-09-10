@@ -1,34 +1,88 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🤖 E-Buy E-commerce
 
-## Getting Started
+Una tienda con productos de ropa creada con NextJs usando Static site generation, Next API, Next Middelwares, TypeScript, Tailwind y Mongoose para persistir la información en una base de datos de MongoDB.
 
-First, run the development server:
+[Puedes ver el sitio en línea aquí](https://audiophile-next.netlify.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
+## 🖼️ Screenshots
+
+![e-buy ecommerce](./public/others/preview.png)
+
+## 🚀 ¿Como usar?
+
+Primero clona el repositorio desde GitHub.
+
+```shell
+git clone https://github.com/joseluria/e-buy.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Muévete a la carpeta del proyecto.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```shell
+cd e-buy
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Instala las dependencias con el siguiente comando:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```shell
+npm install
+```
 
-## Learn More
+Por último, inicia el servidor con el siguiente comando:
 
-To learn more about Next.js, take a look at the following resources:
+```shell
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 💾 Configurando la base de datos con Docker (Opcional)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+_Para realizar este paso es obligatorio tener [Docker](https://www.docker.com/products/docker-desktop/) instalado, de igual forma puedes usar tu propia base de datos local o de MongoDB Atlas._
 
-## Deploy on Vercel
+Debes usar el siguiente comando para levantar una base de datos de forma local con el archivo **docker-compose.yml**:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```shell
+docker-compose up -d
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+La base de datos se iniciara en el puerto _27017_ y la información de la base de datos se almacenara en la carpeta **mongo**.
+
+El string de conexión ya está incluido en el archivo **.env.example** y se ve así:
+
+```text
+MONGO_URL=mongodb://localhost:27017/ebuydb
+```
+
+🚨 Puedes abrir el archivo **.env.example** para ver un ejemplo con todas las variables de entorno, recuerda que debes crear tu propio archivo **.env** con tus varibles de entorno.
+
+## 💽 Usando la API para crear los datos de los productos y categorías
+
+Next JS te permite crear una API en la aplicación para de esta manera tener el Frontend y Backend en el mismo lugar, para crear los datos con la información de los productos y categorías puedes usar el siguiente enpoint usando una petición _POST_:
+
+🚨 Esta funcionalidad solo sirve en el entorno de desarrollo.
+
+```shell
+http://localhost:3000/api/seed
+```
+
+En el archivo **data.ts** en la carpeta **db** puedes encontrar el arreglo con todos los datos de los productos y usuarios.
+
+## ⚙️ Esta aplicación fue construida usando las siguientes tecnologías
+
+- [Next Js](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/docs/animation/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [Next Auth](https://next-auth.js.org/)
+- [SWR](https://swr.vercel.app/)
+- [PayPal Buttons](https://www.npmjs.com/package/@paypal/react-paypal-js)
+- [Axios](https://axios-http.com/docs/intro)
+- [Bcryptjs](https://www.npmjs.com/package/bcryptjs)
+- [Cloudinary](https://cloudinary.com/)
+- [React Toastify](https://fkhadra.github.io/react-toastify/introduction)
+- [Yup](https://github.com/jquense/yup)
+- [MongoDB](https://www.mongodb.com/)
+
+## 📄 Licencia
+
+[MIT](https://opensource.org/licenses/MIT)
