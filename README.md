@@ -2,7 +2,7 @@
 
 Una tienda con productos de ropa creada con NextJs usando Static site generation, Next API, Next Middelwares, TypeScript, Tailwind y Mongoose para persistir la información en una base de datos de MongoDB.
 
-[Puedes ver el sitio en línea aquí](https://e-buy-next.netlify.app/)
+[Puedes ver el sitio en línea aquí](https://jazzy-sprinkles-0bb377.netlify.app/)
 
 ## 🖼️ Screenshots
 
