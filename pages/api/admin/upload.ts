@@ -37,7 +37,7 @@ const saveFile = async (file: formidable.File): Promise<string | undefined> => {
 const parseFiles = async (req: NextApiRequest): Promise<string> => {
   return new Promise((resolve, reject) => {
     const form = new formidable.IncomingForm();
-    form.parse(req, async (error, fields, files) => {
+    form.parse(req, async (error, _fields, files) => {
       if (error) {
         return reject(error);
       }

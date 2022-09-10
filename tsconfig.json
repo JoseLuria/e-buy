@@ -27,7 +27,9 @@
       "@/animations": ["components/animations"],
       "@/toolkit": ["toolkit"],
       "@/validations": ["validations"]
-    }
+    },
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

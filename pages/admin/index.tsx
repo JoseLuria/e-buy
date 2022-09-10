@@ -15,8 +15,9 @@ import {
   ClockIcon,
 } from "@/icons";
 
+const title = "Panel de administrador";
+
 const Admin: NextPage = () => {
-  const title = "Panel de administrador";
   const [refreshIn, setRefreshIn] = useState(30);
   const { data, isLoading, error } = useApi<ApiAdmin>("admin/dashboard", {
     refreshInterval: 30 * 1000,

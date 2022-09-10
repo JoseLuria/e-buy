@@ -4,7 +4,7 @@ import { Layout, Text, Button, Loader, ProductGrid } from "@/components";
 import { useApi } from "@/hooks";
 import { Product } from "@prisma/client";
 
-const AdminProduct: NextPage = () => {
+const AdminProducts: NextPage = () => {
   const { data, isLoading, error } = useApi<Product[]>("admin/product");
   const router = useRouter();
 
@@ -29,4 +29,4 @@ const AdminProduct: NextPage = () => {
   );
 };
 
-export default AdminProduct;
+export default AdminProducts;

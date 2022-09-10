@@ -21,7 +21,7 @@ export default catchError(
 );
 
 const getAllProducts = async (res: NextApiResponse<Data>) => {
-  const products = await prisma.product.findMany();
+  const products = await prisma.product.findMany({});
 
   res.status(200).json(products);
 };

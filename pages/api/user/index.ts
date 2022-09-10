@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import bcrypt from "bcryptjs";
 import { getToken } from "next-auth/jwt";
 import { ApiMessage, ApiCreateUser, ApiUser } from "@/interfaces";
-import { invalidMethod, getSession, catchError, AppError } from "@/utils";
+import { invalidMethod, catchError, AppError } from "@/utils";
 import { yupRegister, yupUser } from "@/validations";
 import { prisma } from "@/prisma";
 

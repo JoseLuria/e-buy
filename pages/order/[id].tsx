@@ -63,7 +63,7 @@ const Order: NextPage<Props> = ({ order, admin }) => {
               {!order.isPaid && !checkOrder && (
                 <div className="z-[2]">
                   <PayPalButtons
-                    createOrder={(data, actions) => {
+                    createOrder={(_data, actions) => {
                       return actions.order.create({
                         purchase_units: [
                           {
@@ -74,7 +74,7 @@ const Order: NextPage<Props> = ({ order, admin }) => {
                         ],
                       });
                     }}
-                    onApprove={(data, actions) => {
+                    onApprove={(_data, actions) => {
                       return actions.order!.capture().then((details) => {
                         onOrderCompleted(details);
                       });

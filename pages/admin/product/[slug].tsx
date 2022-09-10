@@ -28,7 +28,7 @@ interface Props {
   product: Product | null;
 }
 
-const Product: NextPage<Props> = ({ product }) => {
+const AdminProduct: NextPage<Props> = ({ product }) => {
   const {
     register,
     setValue,
@@ -256,4 +256,4 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   };
 };
 
-export default Product;
+export default AdminProduct;

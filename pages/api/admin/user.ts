@@ -24,6 +24,10 @@ export default catchError(
 const getUsers = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   const session = await getSession(req);
 
+  if (!session) {
+    throw new AppError(401, "Usuario no autorizado");
+  }
+
   const id = session.user.id;
 
   const users = await prisma.user.findMany({ where: { id: { not: id } } });
