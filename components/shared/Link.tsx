@@ -25,7 +25,7 @@ export const Link: FC<Props> = ({
   };
 
   return (
-    <NextLink href={href} passHref prefetch>
+    <NextLink href={href} passHref>
       <a
         className={className}
         style={style}
