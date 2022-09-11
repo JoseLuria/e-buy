@@ -1,6 +1,6 @@
 # 🤖 E-Buy E-commerce
 
-Una tienda con productos de ropa creada con NextJs usando Static site generation, Next API, Next Middelwares, TypeScript, Tailwind y Mongoose para persistir la información en una base de datos de MongoDB.
+Una tienda de productos de ropa creada con Next.js usando Static site generation, Next API, Next Middelwares, TypeScript, Tailwind y una base de datos de MongoDB, también incluye la integración de Paypal para procesar los pagos.
 
 ## 🖼️ Screenshots
 
