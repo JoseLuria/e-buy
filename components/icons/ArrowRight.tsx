@@ -9,14 +9,9 @@ export const ArrowRight = (props: SVGProps<SVGSVGElement>) => (
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    color="#000"
+    stroke="#141414"
     {...props}
   >
-    <path
-      d="m9 6 6 6-6 6"
-      stroke="#000"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
+    <path d="m9 6 6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );

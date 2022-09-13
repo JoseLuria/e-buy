@@ -1,29 +1,32 @@
-import { useEffect } from "react";
 import { NextPage } from "next";
-import { useRouter } from "next/router";
-import { Layout, CartProductList, MainGrid, CartCheckout } from "@/components";
+import {
+  Layout,
+  CartProductList,
+  MainGrid,
+  CartCheckout,
+  EmptyCard,
+} from "@/components";
+import { CartIcon } from "@/icons";
 import { useSelector, getCartState } from "@/toolkit";
 
 const Cart: NextPage = () => {
   const { cartProducts, cartList } = useSelector(getCartState);
-  const router = useRouter();
-
-  useEffect(() => {
-    if (cartProducts === 0) {
-      router.replace("/cart/empty");
-    }
-  }, [cartProducts, router]);
 
   return (
     <Layout title="Carrito de compras">
-      <MainGrid>
-        {cartProducts > 0 && (
-          <>
-            <CartProductList cartList={cartList} />
-            <CartCheckout />
-          </>
-        )}
-      </MainGrid>
+      {cartProducts > 0 ? (
+        <MainGrid>
+          <CartProductList cartList={cartList} />
+          <CartCheckout />
+        </MainGrid>
+      ) : (
+        <EmptyCard
+          title="Carrito vacío"
+          text="Su carrito de compras se encuentra vacío. Agregue algunos productos y regrese a esta página."
+        >
+          <CartIcon width={80} height={80} />
+        </EmptyCard>
+      )}
     </Layout>
   );
 };

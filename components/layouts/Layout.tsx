@@ -10,7 +10,7 @@ export const Layout: FC<Props> = ({ title, description, otg, children }) => {
   return (
     <>
       <Head title={title} description={description} otg={otg} />
-      <div className="mt-[90px] w-full mb-12 px-6 md:px-12">
+      <div className="mt-[90px] w-full mb-12 px-6 md:px-12 text-black">
         <NavBar />
         <div className="w-full max-w-container mx-auto">{children}</div>
       </div>

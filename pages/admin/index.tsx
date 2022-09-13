@@ -47,6 +47,7 @@ const Admin: NextPage = () => {
             />
             <AdminCard
               title="Clientes"
+              className="stroke-blue-900"
               icon={UserIcon}
               quantity={data.numberOfClients}
             />
@@ -57,6 +58,7 @@ const Admin: NextPage = () => {
             />
             <AdminCard
               title="Órdenes pagadas"
+              className="stroke-green"
               icon={MoneyIcon}
               quantity={data.paidOrders}
             />
@@ -67,11 +69,13 @@ const Admin: NextPage = () => {
             />
             <AdminCard
               title="Sin existencias"
+              className="stroke-red"
               icon={NoItemsIcons}
               quantity={data.productsWithNoInventory}
             />
             <AdminCard
               title="Actualización en:"
+              className="stroke-blue-900"
               icon={ClockIcon}
               quantity={refreshIn}
             />

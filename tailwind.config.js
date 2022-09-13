@@ -11,6 +11,8 @@ module.exports = {
         gray: "#D8DEE9",
         red: "#CD2C2C",
         green: "#2E7D32",
+        dark: "#000000",
+        black: "#141414",
       },
     },
     maxWidth: {

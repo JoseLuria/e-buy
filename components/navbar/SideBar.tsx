@@ -49,7 +49,7 @@ export const SideBar: FC<Props> = ({ exit, autoFocus }) => {
       initial="initial"
       animate="animate"
       onClick={exit}
-      className="w-full z-[3] h-full fixed top-0 left-0 bg-black bg-opacity-60 flex"
+      className="w-full z-[3] h-full fixed top-0 left-0 bg-dark bg-opacity-60 flex"
     >
       <motion.div
         variants={sideBarVariants}
